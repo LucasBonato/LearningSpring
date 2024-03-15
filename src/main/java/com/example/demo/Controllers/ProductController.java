@@ -1,6 +1,7 @@
 package com.example.demo.Controllers;
 
 import com.example.demo.Command.CommandHandlers.CreateProductCommandHandler;
+import com.example.demo.Command.CommandHandlers.DeleteProductCommandHandler;
 import com.example.demo.Command.CommandHandlers.UpdateProductCommandHandler;
 import com.example.demo.Models.Product;
 import com.example.demo.Models.UpdateProductCommand;
@@ -18,8 +19,6 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
     @Autowired
-    private ProductRepository productRepository;
-    @Autowired
     private GetAllProductsQueryHandler getAllProducts;
     @Autowired
     private GetProductQueryHandler getProduct;
@@ -27,6 +26,8 @@ public class ProductController {
     private CreateProductCommandHandler createProduct;
     @Autowired
     private UpdateProductCommandHandler updateProduct;
+    @Autowired
+    private DeleteProductCommandHandler deleteProduct;
 
     @GetMapping
     public ResponseEntity<List<Product>> getProducts() {
@@ -48,8 +49,6 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){
-        Product product = productRepository.findById(id).get();
-        productRepository.delete(product);
-        return ResponseEntity.ok().build();
+        return deleteProduct.execute(id);
     }
 }
