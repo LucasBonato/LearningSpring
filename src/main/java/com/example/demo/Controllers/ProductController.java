@@ -1,5 +1,6 @@
 package com.example.demo.Controllers;
 
+import com.example.demo.Command.CommandHandlers.CreateProductCommandHandler;
 import com.example.demo.Models.Product;
 import com.example.demo.Query.QueryHandlers.GetAllProductsQueryHandler;
 import com.example.demo.Query.QueryHandlers.GetProductQueryHandler;
@@ -19,6 +20,8 @@ public class ProductController {
     private GetAllProductsQueryHandler getAllProductsQueryHandler;
     @Autowired
     private GetProductQueryHandler getProductQueryHandler;
+    @Autowired
+    private CreateProductCommandHandler createProductCommandHandler;
 
     @GetMapping
     public ResponseEntity<List<Product>> getProducts() {
@@ -29,20 +32,19 @@ public class ProductController {
         return getProductQueryHandler.execute(id);
     }
     @PostMapping
-    public ResponseEntity create(@RequestBody Product product){
-        productRepository.save(product);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Void> create(@RequestBody Product product){
+        return createProductCommandHandler.execute(product);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity update(@PathVariable Integer id, @RequestBody Product product){
+    public ResponseEntity<Void> update(@PathVariable Integer id, @RequestBody Product product){
         product.setId(id);
         productRepository.save(product);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable Integer id){
+    public ResponseEntity<Void> delete(@PathVariable Integer id){
         Product product = productRepository.findById(id).get();
         productRepository.delete(product);
         return ResponseEntity.ok().build();

@@ -11,7 +11,6 @@ import java.util.List;
 
 @Service
 public class GetAllProductsQueryHandler implements Query<Void, List<Product>> {
-
     @Autowired
     private ProductRepository productRepository;
     @Override
