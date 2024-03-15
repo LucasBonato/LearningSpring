@@ -1,8 +1,8 @@
-package com.example.demo.query.queryHandlers;
+package com.example.demo.Query.QueryHandlers;
 
-import com.example.demo.models.Product;
-import com.example.demo.query.Query;
-import com.example.demo.repositories.ProductRepository;
+import com.example.demo.Models.Product;
+import com.example.demo.Query.Query;
+import com.example.demo.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
