@@ -2,14 +2,12 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Command.CommandHandlers.CreateProductCommandHandler;
 import com.example.demo.Command.CommandHandlers.DeleteProductCommandHandler;
-import com.example.demo.Command.CommandHandlers.UpdateProductCommandHandler;
+import com.example.demo.Command.UpdateProductCommandHandler;
 import com.example.demo.Models.DTOs.ProductDTO;
 import com.example.demo.Models.Product;
-import com.example.demo.Models.UpdateProductCommand;
+import com.example.demo.Command.CommandHandlers.UpdateProductCommand;
 import com.example.demo.Query.QueryHandlers.GetAllProductsQueryHandler;
 import com.example.demo.Query.QueryHandlers.GetProductQueryHandler;
-import com.example.demo.Repositories.ProductRepository;
-import com.mysql.cj.jdbc.result.UpdatableResultSet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

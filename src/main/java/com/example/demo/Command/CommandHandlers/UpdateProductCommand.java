@@ -1,5 +1,6 @@
-package com.example.demo.Models;
+package com.example.demo.Command.CommandHandlers;
 
+import com.example.demo.Models.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

@@ -1,8 +1,8 @@
-package com.example.demo.Command.CommandHandlers;
+package com.example.demo.Command;
 
 import com.example.demo.Command.Command;
+import com.example.demo.Command.CommandHandlers.UpdateProductCommand;
 import com.example.demo.Models.Product;
-import com.example.demo.Models.UpdateProductCommand;
 import com.example.demo.Repositories.ProductRepository;
 import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
