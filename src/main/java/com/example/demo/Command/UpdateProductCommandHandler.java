@@ -2,6 +2,7 @@ package com.example.demo.Command;
 
 import com.example.demo.Command.Command;
 import com.example.demo.Command.CommandHandlers.UpdateProductCommand;
+import com.example.demo.Exceptions.ProductNotFoundException;
 import com.example.demo.Models.Product;
 import com.example.demo.Repositories.ProductRepository;
 import io.micrometer.common.util.StringUtils;
@@ -31,7 +32,7 @@ public class UpdateProductCommandHandler implements Command<UpdateProductCommand
     private void validateId(Integer id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isEmpty()){
-            throw new RuntimeException("Product does not exist!");
+            throw new ProductNotFoundException();
         }
     }
 

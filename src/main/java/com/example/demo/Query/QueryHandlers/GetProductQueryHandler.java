@@ -1,5 +1,6 @@
 package com.example.demo.Query.QueryHandlers;
 
+import com.example.demo.Exceptions.ProductNotFoundException;
 import com.example.demo.Models.DTOs.ProductDTO;
 import com.example.demo.Models.Product;
 import com.example.demo.Query.Query;
@@ -18,9 +19,9 @@ public class GetProductQueryHandler implements Query<Integer, ProductDTO> {
     @Override
     public ResponseEntity<ProductDTO> execute(Integer id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
-
-        return (optionalProduct.isPresent())
-                ? ResponseEntity.ok(new ProductDTO(optionalProduct.get()))
-                : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        if(optionalProduct.isPresent()){
+            return ResponseEntity.ok(new ProductDTO(optionalProduct.get()));
+        }
+        throw new ProductNotFoundException();
     }
 }
