@@ -20,7 +20,6 @@ public class DeleteProductCommandHandler implements Command<Integer, Void> {
         productRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
-
     private void validateId(Integer id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isEmpty()){

@@ -18,7 +18,6 @@ public class CreateProductCommandHandler implements Command<Product, Void> {
         productRepository.save(product);
         return ResponseEntity.ok().build();
     }
-
     private static void validateProduct(Product product) {
         if(StringUtils.isBlank(product.getName())) {
             throw new RuntimeException("Product name cannot be blank!");

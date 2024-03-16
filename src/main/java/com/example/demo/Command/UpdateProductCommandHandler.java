@@ -1,6 +1,5 @@
 package com.example.demo.Command;
 
-import com.example.demo.Command.Command;
 import com.example.demo.Command.CommandHandlers.UpdateProductCommand;
 import com.example.demo.Exceptions.ProductNotFoundException;
 import com.example.demo.Models.Product;
@@ -28,14 +27,12 @@ public class UpdateProductCommandHandler implements Command<UpdateProductCommand
         productRepository.save(product);
         return ResponseEntity.ok().build();
     }
-
     private void validateId(Integer id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
         if(optionalProduct.isEmpty()){
             throw new ProductNotFoundException();
         }
     }
-
     private void validateProduct(Product product) {
         if(StringUtils.isBlank(product.getName())) {
             throw new RuntimeException("Product name cannot be blank!");
