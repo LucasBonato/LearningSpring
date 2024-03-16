@@ -2,7 +2,7 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Command.CommandHandlers.CreateProductCommandHandler;
 import com.example.demo.Command.CommandHandlers.DeleteProductCommandHandler;
-import com.example.demo.Command.UpdateProductCommandHandler;
+import com.example.demo.Command.CommandHandlers.UpdateProductCommandHandler;
 import com.example.demo.Models.DTOs.ProductDTO;
 import com.example.demo.Models.Product;
 import com.example.demo.Command.CommandHandlers.UpdateProductCommand;
