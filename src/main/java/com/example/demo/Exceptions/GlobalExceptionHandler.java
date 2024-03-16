@@ -11,6 +11,6 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ExceptionResponse> HandlerProductNotFound(BaseException exception) {
         return ResponseEntity
                 .status(exception.getStatus())
-                .body(exception.getMessage());
+                .body(exception.getExceptionResponse());
     }
 }
