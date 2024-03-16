@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-    @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<ExceptionResponse> HandlerProductNotFound(BaseException exception) {
+    @ExceptionHandler(BaseException.class)
+    public ResponseEntity<ExceptionResponse> handlerProductExceptions(BaseException exception) {
         return ResponseEntity
                 .status(exception.getStatus())
                 .body(exception.getExceptionResponse());
