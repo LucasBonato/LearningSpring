@@ -37,7 +37,7 @@ public class CreateProductCommandHandlerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
     @Test
-    public void CreateProductCommandHandler_invalidPrice_throwsInvalidPriceException() {
+    public void createProductCommandHandler_invalidPrice_throwsInvalidPriceException() {
         Product product = new Product();
         product.setId(1);
         product.setName("Octopus Plush");
