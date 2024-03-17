@@ -10,12 +10,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GetAllProductsQueryHandler implements Query<Void, List<ProductDTO>> {
+public class GetAllProductsWithPriceLessThenQueryHandler implements Query<Double, List<ProductDTO>> {
     @Autowired
     private ProductRepository productRepository;
+
     @Override
-    public ResponseEntity<List<ProductDTO>> execute(Void input) {
-        List<ProductDTO> productDTOs = productRepository.getAllProductsDTOs();
-        return ResponseEntity.ok(productDTOs);
+    public ResponseEntity<List<ProductDTO>> execute(Double maxPrice) {
+        List<ProductDTO> response = productRepository.findProductsWithPriceLessThan(maxPrice);
+        return ResponseEntity.ok(response);
     }
 }

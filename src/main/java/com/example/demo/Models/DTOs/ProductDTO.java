@@ -1,9 +1,11 @@
 package com.example.demo.Models.DTOs;
 
 import com.example.demo.Models.Product;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class ProductDTO {
     private String name;
     private String description;
