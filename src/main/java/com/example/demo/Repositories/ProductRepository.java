@@ -13,4 +13,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findByPriceLessThan(Double maxValue);
     @Query("SELECT new com.example.demo.Models.DTOs.ProductDTO(name, description, price) FROM Product")
     List<ProductDTO> getAllProductsDTOs();
+
+    List<Product> findByDescriptionContaining(String description);
 }
