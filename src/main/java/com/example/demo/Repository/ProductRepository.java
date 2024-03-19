@@ -1,7 +1,7 @@
-package com.example.demo.Repositories;
+package com.example.demo.Repository;
 
-import com.example.demo.Models.DTOs.ProductDTO;
-import com.example.demo.Models.Product;
+import com.example.demo.Product.Models.DTOs.ProductDTO;
+import com.example.demo.Product.Models.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

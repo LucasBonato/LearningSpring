@@ -1,9 +1,8 @@
-package com.example.demo.Query.QueryHandlers;
+package com.example.demo.Product.Query.QueryHandlers;
 
-import com.example.demo.Models.DTOs.ProductDTO;
-import com.example.demo.Models.Product;
-import com.example.demo.Query.Query;
-import com.example.demo.Repositories.ProductRepository;
+import com.example.demo.Product.Models.DTOs.ProductDTO;
+import com.example.demo.Product.Query.Query;
+import com.example.demo.Repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -11,14 +10,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GetAllProductsWithPriceLessThenQueryHandler implements Query<Double, List<ProductDTO>> {
+public class GetAllSearchedProductsDescriptionQueryHandler implements Query<String, List<ProductDTO>> {
     @Autowired
     private ProductRepository productRepository;
-
     @Override
-    public ResponseEntity<List<ProductDTO>> execute(Double maxPrice) {
+    public ResponseEntity<List<ProductDTO>> execute(String description) {
         List<ProductDTO> response = productRepository
-                .findByPriceLessThan(maxPrice)
+                .findByDescriptionContaining(description)
                 .stream()
                 .map(ProductDTO::new)
                 .toList();

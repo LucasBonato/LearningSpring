@@ -1,4 +1,4 @@
-package com.example.demo.Command;
+package com.example.demo.Product.Command;
 
 import org.springframework.http.ResponseEntity;
 

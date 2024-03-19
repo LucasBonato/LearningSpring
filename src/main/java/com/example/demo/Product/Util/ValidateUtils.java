@@ -1,9 +1,9 @@
-package com.example.demo.Util;
+package com.example.demo.Product.Util;
 
 import com.example.demo.Exceptions.ProductNotFoundException;
 import com.example.demo.Exceptions.ProductNotValidException;
-import com.example.demo.Models.Product;
-import com.example.demo.Repositories.ProductRepository;
+import com.example.demo.Product.Models.Product;
+import com.example.demo.Repository.ProductRepository;
 import io.micrometer.common.util.StringUtils;
 
 import java.util.Optional;

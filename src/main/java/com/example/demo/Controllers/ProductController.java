@@ -1,16 +1,15 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.Command.CommandHandlers.CreateProductCommandHandler;
-import com.example.demo.Command.CommandHandlers.DeleteProductCommandHandler;
-import com.example.demo.Command.CommandHandlers.UpdateProductCommandHandler;
-import com.example.demo.Models.DTOs.ProductDTO;
-import com.example.demo.Models.Product;
-import com.example.demo.Command.CommandHandlers.UpdateProductCommand;
-import com.example.demo.Query.QueryHandlers.GetAllProductsQueryHandler;
-import com.example.demo.Query.QueryHandlers.GetAllProductsWithPriceLessThenQueryHandler;
-import com.example.demo.Query.QueryHandlers.GetAllSearchedProductsDescriptionQueryHandler;
-import com.example.demo.Query.QueryHandlers.GetProductQueryHandler;
-import com.example.demo.Repositories.ProductRepository;
+import com.example.demo.Product.Command.CommandHandlers.CreateProductCommandHandler;
+import com.example.demo.Product.Command.CommandHandlers.DeleteProductCommandHandler;
+import com.example.demo.Product.Command.CommandHandlers.UpdateProductCommandHandler;
+import com.example.demo.Product.Models.DTOs.ProductDTO;
+import com.example.demo.Product.Models.Product;
+import com.example.demo.Product.Command.CommandHandlers.UpdateProductCommand;
+import com.example.demo.Product.Query.QueryHandlers.GetAllProductsQueryHandler;
+import com.example.demo.Product.Query.QueryHandlers.GetAllProductsWithPriceLessThenQueryHandler;
+import com.example.demo.Product.Query.QueryHandlers.GetAllSearchedProductsDescriptionQueryHandler;
+import com.example.demo.Product.Query.QueryHandlers.GetProductQueryHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

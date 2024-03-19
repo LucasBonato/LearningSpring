@@ -1,10 +1,10 @@
 package com.example.demo.ProductControllerTest;
 
-import com.example.demo.Command.CommandHandlers.CreateProductCommandHandler;
+import com.example.demo.Product.Command.CommandHandlers.CreateProductCommandHandler;
 import com.example.demo.Exceptions.ProductNotValidException;
 import com.example.demo.LearningSpringApplication;
-import com.example.demo.Models.Product;
-import com.example.demo.Repositories.ProductRepository;
+import com.example.demo.Product.Models.Product;
+import com.example.demo.Repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;

@@ -2,10 +2,10 @@ package com.example.demo.ProductControllerTest;
 
 import com.example.demo.Exceptions.ProductNotFoundException;
 import com.example.demo.LearningSpringApplication;
-import com.example.demo.Models.DTOs.ProductDTO;
-import com.example.demo.Models.Product;
-import com.example.demo.Query.QueryHandlers.GetProductQueryHandler;
-import com.example.demo.Repositories.ProductRepository;
+import com.example.demo.Product.Models.DTOs.ProductDTO;
+import com.example.demo.Product.Models.Product;
+import com.example.demo.Product.Query.QueryHandlers.GetProductQueryHandler;
+import com.example.demo.Repository.ProductRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
