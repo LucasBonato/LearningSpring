@@ -20,4 +20,7 @@ public class Endereco {
 
     @Column(name = "Estado")
     private String estado;
+
+    @Column(name = "Id_Cliente")
+    private Integer idCliente;
 }

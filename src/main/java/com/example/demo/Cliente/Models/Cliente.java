@@ -3,6 +3,8 @@ package com.example.demo.Cliente.Models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Cliente")
 @Data
@@ -18,7 +20,7 @@ public class Cliente {
     @Column(name = "Sobrenome")
     private String sobrenome;
 
-    @OneToOne(cascade = CascadeType.ALL) // O cascade significa que quando alterado o Cliente ira alterar o Endereco automaticamente mesmo não estando no mesmo contexto
-    @JoinColumn(name = "IdEndereco")
-    private Endereco endereco;
+    @OneToMany(cascade = CascadeType.ALL) // O cascade significa que quando alterado o Cliente ira alterar o Endereco automaticamente mesmo não estando no mesmo contexto
+    @JoinColumn(name = "Id_Cliente")
+    private List<Endereco> enderecos;
 }
