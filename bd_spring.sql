@@ -22,5 +22,25 @@ CREATE TABLE Endereco(
     Estado varChar(255) NOT NULL
 );
 
+ALTER TABLE Cliente RENAME COLUMN IdEndereco TO Id_Endereco;
+
+INSERT INTO Endereco(Logradouro, Cidade, Estado)VALUE('Rua Banofe Louco, 256', 'São Paulo', 'São Paulo');
+INSERT INTO Cliente(Nome, Sobrenome, IdEndereco)VALUE('Diogo', 'Breviglieri', 1);
+
+SELECT * FROM Cliente c INNER JOIN Endereco e ON c.Id_Endereco = e.Id;
+
+select 
+	c.id,
+	c.nome,
+	c.sobrenome,
+	e.id,
+	e.cidade,
+	e.estado,
+	e.logradouro
+from cliente c
+left join endereco e
+on e.id = c.id_Endereco 
+where c.id = 1;
+
 SELECT * FROM Product WHERE price < 500;
 SELECT NameP, DescriptionP, Price FROM Product;
