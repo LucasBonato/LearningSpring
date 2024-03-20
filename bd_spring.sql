@@ -24,8 +24,13 @@ CREATE TABLE Endereco(
 
 ALTER TABLE Cliente RENAME COLUMN IdEndereco TO Id_Endereco;
 
+ALTER TABLE Endereco ADD COLUMN Id_Cliente BigInt,
+ADD CONSTRAINT fk_cliente FOREIGN KEY (Id_Cliente) REFERENCES Cliente(Id);
+
+UPDATE Endereco SET Id_Cliente = (SELECT Id FROM Cliente WHERE Id = Endereco.Id);
+
 INSERT INTO Endereco(Logradouro, Cidade, Estado)VALUE('Rua Banofe Louco, 256', 'São Paulo', 'São Paulo');
-INSERT INTO Cliente(Nome, Sobrenome, IdEndereco)VALUE('Diogo', 'Breviglieri', 1);
+INSERT INTO Cliente(Nome, Sobrenome, Id_Endereco)VALUE('Diogo', 'Breviglieri', 1);
 
 SELECT * FROM Cliente c INNER JOIN Endereco e ON c.Id_Endereco = e.Id;
 
