@@ -13,7 +13,6 @@ import java.util.List;
 public class GetAllProductsWithPriceLessThenQueryHandler implements Query<Double, List<ProductDTO>> {
     @Autowired
     private ProductRepository productRepository;
-
     @Override
     public ResponseEntity<List<ProductDTO>> execute(Double maxPrice) {
         List<ProductDTO> response = productRepository
