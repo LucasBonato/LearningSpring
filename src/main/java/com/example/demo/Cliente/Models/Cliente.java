@@ -20,7 +20,7 @@ public class Cliente {
     @Column(name = "Sobrenome")
     private String sobrenome;
 
-    @OneToMany(cascade = CascadeType.ALL) // O cascade significa que quando alterado o Cliente ira alterar o Endereco automaticamente mesmo não estando no mesmo contexto
-    @JoinColumn(name = "Id_Cliente")
+    @ManyToMany(cascade = CascadeType.ALL) // O cascade significa que quando alterado o Cliente ira alterar o Endereco automaticamente mesmo não estando no mesmo contexto
+    @JoinTable(name = "Cliente_Endereco", joinColumns = @JoinColumn(name = "Id_Cliente"), inverseJoinColumns = @JoinColumn(name = "Id_Endereco"))
     private List<Endereco> enderecos;
 }

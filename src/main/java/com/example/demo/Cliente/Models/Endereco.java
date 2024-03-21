@@ -1,7 +1,10 @@
 package com.example.demo.Cliente.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Table(name = "Endereco")
@@ -21,6 +24,7 @@ public class Endereco {
     @Column(name = "Estado")
     private String estado;
 
-    @Column(name = "Id_Cliente")
-    private Integer idCliente;
+    @ManyToMany(mappedBy = "enderecos")
+    @JsonIgnore // Como temos uma lista dos dois lados, ficaria um loop, então não vai colocar esse atributo no JSON
+    private List<Cliente> clientes;
 }
