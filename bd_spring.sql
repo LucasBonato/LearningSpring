@@ -21,7 +21,13 @@ CREATE TABLE Endereco(
     Cidade varChar(255) NOT NULL,
     Estado varChar(255) NOT NULL
 );
-CREATE TABLE 
+CREATE TABLE Cliente_Endereco(
+	Id_Cliente Bigint,
+    Id_Endereco BigInt,
+    primary key (Id_Cliente, Id_Endereco),
+    foreign key (Id_Cliente) references Cliente(Id),
+    foreign key (Id_Endereco) references Endereco(Id)
+);
 -- Alterando o Nome do Campo por conta de conflito com o Spring
 ALTER TABLE Cliente RENAME COLUMN IdEndereco TO Id_Endereco;
 
@@ -33,6 +39,17 @@ UPDATE Endereco SET Id_Cliente = (SELECT Id FROM Cliente WHERE Id = Endereco.Id)
 -- Apagando a FK de Cliente
 ALTER TABLE Cliente DROP FOREIGN KEY cliente_ibfk_1;
 ALTER TABLE Cliente DROP COLUMN Id_Endereco;
+
+-- Trazendo os dados anteriores para não haver perda no Banco
+INSERT INTO Cliente_Endereco(Id_Cliente, Id_Endereco)
+SELECT Id_Cliente, Id as Id_Endereco
+FROM Endereco;
+-- Removendo a foreign Key de Endereco
+ALTER TABLE Endereco
+DROP FOREIGN KEY fk_cliente;
+
+ALTER TABLE Endereco
+DROP COLUMN Id_Cliente;
 
 -- Inserção de Dados nas Tabelas OneToOne
 INSERT INTO Endereco(Logradouro, Cidade, Estado)VALUE('Rua Banofe Louco, 256', 'São Paulo', 'São Paulo');
@@ -47,5 +64,6 @@ INSERT INTO Endereco(Logradouro, Cidade, Estado, Id_Cliente)VALUE
 SELECT * FROM Cliente c INNER JOIN Endereco e ON c.Id = e.Id_Cliente;
 SELECT * FROM Endereco;
 SELECT * FROM Cliente;
+SELECT * FROM Cliente_Endereco;
 SELECT * FROM Product WHERE price < 500;
 SELECT NameP, DescriptionP, Price FROM Product;
